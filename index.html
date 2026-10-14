@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Портфолио начинающего веб-разработчика">
+    <title>Занегина София — веб-разработчик</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Панель для слабовидящих -->
+    <section id="a11y-panel" class="a11y-panel" aria-label="Настройки для слабовидящих" hidden>
+        <h2>Версия для слабовидящих</h2>
+
+        <div class="a11y-row">
+            <span id="a11y-font-label">Размер шрифта:</span>
+            <div role="group" aria-labelledby="a11y-font-label">
+                <button type="button" data-a11y="font-down" aria-label="Уменьшить шрифт">A−</button>
+                <button type="button" data-a11y="font-reset" aria-label="Сбросить размер шрифта">A</button>
+                <button type="button" data-a11y="font-up" aria-label="Увеличить шрифт">A+</button>
+            </div>
+        </div>
+
+        <div class="a11y-row">
+            <button type="button" data-a11y="contrast" aria-pressed="false">
+                ◐ Чёрно-белый режим
+            </button>
+        </div>
+
+        <div class="a11y-row">
+            <button type="button" data-a11y="spacing" aria-pressed="false">
+                ↔ Увеличенные интервалы
+            </button>
+        </div>
+
+        <div class="a11y-row">
+            <button type="button" data-a11y="images" aria-pressed="false">
+                🖼 Скрыть изображения
+            </button>
+        </div>
+
+        <div class="a11y-row">
+            <button type="button" data-a11y="sans" aria-pressed="false">
+                🔤 Шрифт без засечек
+            </button>
+        </div>
+
+        <div class="a11y-row">
+            <button type="button" data-a11y="reset" aria-label="Сбросить все настройки">
+                ⟲ Сбросить настройки
+            </button>
+        </div>
+
+        <button type="button" id="a11y-close" class="a11y-close" aria-label="Закрыть панель">✕</button>
+    </section>
+
+    <header>
+        <button id="theme-toggle" title="Сменить тему" aria-label="Переключить темную тему">🌙</button>
+
+        <button id="a11y-toggle" title="Версия для слабовидящих (Alt+V)"
+                aria-label="Включить версию для слабовидящих"
+                aria-pressed="false">👁</button>
+
+        <nav aria-label="Основная навигация">
+            <a href="#about">Обо мне</a>
+            <a href="#skills">Навыки</a>
+            <a href="#projects">Проекты</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+        <h1>Занегина София</h1>
+        <p>Начинающий веб-разработчик</p>
+    </header>
+
+    <main>
+        <section id="about">
+            <img src="avatar/888.jpg" alt="Фото Софии" width="160" height="160">
+            <div>
+                <h2>Обо мне</h2>
+                <p>Привет! Я изучаю <strong>веб-разработку</strong> и создаю сайты
+                   на <em>HTML и CSS</em>. Это мой первый проект, сделанный с нуля.
+                   Также пробую себя в <strong>Python</strong> и <strong>Docker</strong>.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Навыки</h2>
+            <ul>
+                <li>Основы C++</li>
+                <li>Основы Java</li>
+                <li>Основы Python</li>
+                <li>Начальный уровень работы с SQL и Docker</li>
+                <li>HTML и CSS — вёрстка простых страниц</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Мои проекты</h2>
+
+            <article>
+                <h3>🐍 Интерактивный квест на Python</h3>
+                <p>Текстовая игра в консоли: несколько веток сюжета, выбор
+                   вариантов ответа и подсчёт очков в конце.</p>
+                <div class="tags">
+                    <span>Python</span>
+                    <span>Консоль</span>
+                </div>
+                <a href="#" aria-label="Смотреть проект: Интерактивный квест на Python">Смотреть проект →</a>
+            </article>
+
+            <article>
+                <h3>🐳 База данных через Docker</h3>
+                <p>Развёртывание PostgreSQL в контейнере Docker: настройка
+                   <code>docker-compose</code>, создание таблиц и простые SQL-запросы.</p>
+                <div class="tags">
+                    <span>Docker</span>
+                    <span>SQL</span>
+                </div>
+                <a href="#" aria-label="Смотреть проект: База данных через Docker">Смотреть проект →</a>
+            </article>
+
+            <article>
+                <h3>🧮 Калькулятор на JavaScript</h3>
+                <p>Простой веб-калькулятор: четыре арифметических действия,
+                   очистка поля и обработка деления на ноль.</p>
+                <div class="tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                </div>
+                <a href="#" aria-label="Смотреть проект: Калькулятор на JavaScript">Смотреть проект →</a>
+            </article>
+        </section>
+
+        <section id="contacts">
+            <h2>Связаться со мной</h2>
+
+            <div class="contacts-wrap">
+                <form action="#" method="POST">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" name="name" placeholder="Как вас зовут?" required>
+
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="you@mail.ru" required>
+
+                    <label for="msg">Сообщение</label>
+                    <textarea id="msg" name="message" rows="4" placeholder="Ваше сообщение..." required></textarea>
+
+                    <button type="submit">Отправить</button>
+                </form>
+
+                <aside class="contact-info">
+                    <h3>Прямые контакты</h3>
+                    <p>
+                        <span class="contact-icon" aria-hidden="true">📞</span>
+                        <a href="tel:+79834536507">+7 (983) 453-65-07</a>
+                    </p>
+                    <p>
+                        <span class="contact-icon" aria-hidden="true">✈️</span>
+                        <a href="https://t.me/aviIrly" target="_blank" rel="noopener">@aviIrly</a>
+                    </p>
+                    <p>
+                        <span class="contact-icon" aria-hidden="true">✉️</span>
+                        <a href="mailto:zanegin.020202@gmail.com">zanegin.020202@gmail.com</a>
+                    </p>
+                </aside>
+            </div>
+
+            <p id="form-status" role="status" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© <span id="year">2026</span> Занегина София. Учебный проект на HTML + CSS + JS.</p>
+    </footer>
+
+    <button id="to-top" title="Наверх" aria-label="Вернуться наверх">↑</button>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
