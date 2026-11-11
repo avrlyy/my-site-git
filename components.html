@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Компоненты интерфейса">
+  <title>Компоненты интерфейса</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    main { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    section.component-block { margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--color-border, #ccc); }
+    h2.component-title { margin-bottom: 20px; font-size: 1.5rem; }
+    .tabs { display: flex; flex-direction: column; gap: 16px; }
+    .tabs__list { display: flex; gap: 8px; border-bottom: 2px solid var(--color-border, #ddd); }
+    .tabs__tab { padding: 10px 16px; background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; font-weight: 600; color: var(--color-text, #333); }
+    .tabs__tab.is-active { border-bottom-color: var(--color-main, #0066cc); color: var(--color-main, #0066cc); }
+    .tabs__panel { padding: 16px 0; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <button id="theme-toggle" title="Сменить тему" aria-label="Переключить темную тему">🌙</button>
+    <button id="a11y-toggle" title="Версия для слабовидящих" aria-label="Включить версию для слабовидящих" aria-pressed="false">👁</button>
+    
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+      <span class="menu-toggle__icon"></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Основная навигация">
+      <a href="index.html">← На главную визитку</a>
+      <a href="#burger-section">Меню</a>
+      <a href="#modal-section">Модалка</a>
+      <a href="#slider-section">Слайдер</a>
+      <a href="#tabs-section">Табы</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="burger-section" class="component-block">
+      <h2 class="component-title">1. Меню-бургер</h2>
+      <p>Уменьшите ширину экрана ниже 700px, чтобы протестировать мобильное меню.</p>
+    </section>
+
+    <section id="modal-section" class="component-block">
+      <h2 class="component-title">2. Модальное окно</h2>
+      <button class="btn" data-open-modal="#modal-contact">Записаться на консультацию</button>
+    </section>
+
+    <section id="slider-section" class="component-block">
+      <h2 class="component-title">3. Слайдер</h2>
+      <div class="slider" aria-label="Галерея проектов">
+        <button class="slider__btn slider__btn--prev" aria-label="Предыдущий слайд">‹</button>
+        <div class="slider__viewport">
+          <div class="slider__track">
+            
+            <!-- Слайд 1 (Оформлен как проект) -->
+            <div class="slider__slide">
+              <article style="width: 100%; height: 100%; border: none; box-shadow: none; background: transparent;">
+                <h3>🐍 Интерактивный квест на Python</h3>
+                <p>Текстовая игра в консоли: несколько веток сюжета, выбор вариантов ответа и подсчёт очков в конце.</p>
+                <div class="tags">
+                  <span>Python</span>
+                  <span>Консоль</span>
+                </div>
+              </article>
+            </div>
+
+            <!-- Слайд 2 (Оформлен как проект) -->
+            <div class="slider__slide">
+              <article style="width: 100%; height: 100%; border: none; box-shadow: none; background: transparent;">
+                <h3>🐳 База данных через Docker</h3>
+                <p>Развёртывание PostgreSQL в контейнере Docker: настройка <code>docker-compose</code>, создание таблиц и простые SQL-запросы.</p>
+                <div class="tags">
+                  <span>Docker</span>
+                  <span>SQL</span>
+                </div>
+              </article>
+            </div>
+
+            <!-- Слайд 3 (Оформлен как проект) -->
+            <div class="slider__slide">
+              <article style="width: 100%; height: 100%; border: none; box-shadow: none; background: transparent;">
+                <h3>🧮 Калькулятор на JavaScript</h3>
+                <p>Простой веб-калькулятор: четыре арифметических действия, очистка поля и обработка деления на ноль.</p>
+                <div class="tags">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                </div>
+              </article>
+            </div>
+
+          </div>
+        </div>
+        <button class="slider__btn slider__btn--next" aria-label="Следующий слайд">›</button>
+        <div class="slider__dots"></div>
+      </div>
+    </section>
+
+    <section id="tabs-section" class="component-block">
+      <h2 class="component-title">4. Вкладки (Табы)</h2>
+      <div class="tabs">
+        <div class="tabs__list" role="tablist" aria-label="Информация">
+          <button class="tabs__tab is-active" role="tab" aria-selected="true" aria-controls="tab-1" id="tab-btn-1" data-tab="#tab-1">Описание</button>
+          <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="tab-2" id="tab-btn-2" data-tab="#tab-2" tabindex="-1">Характеристики</button>
+          <button class="tabs__tab" role="tab" aria-selected="false" aria-controls="tab-3" id="tab-btn-3" data-tab="#tab-3" tabindex="-1">Отзывы</button>
+        </div>
+        <div class="tabs__panel" id="tab-1" role="tabpanel" aria-labelledby="tab-btn-1">
+          <p>Текст описания компонента...</p>
+        </div>
+        <div class="tabs__panel" id="tab-2" role="tabpanel" aria-labelledby="tab-btn-2" hidden>
+          <p>Список характеристик...</p>
+        </div>
+        <div class="tabs__panel" id="tab-3" role="tabpanel" aria-labelledby="tab-btn-3" hidden>
+          <p>Отзывы пользователей...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="modal-contact" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <h2 id="modal-title">Форма связи</h2>
+      <form class="modal__form modal-ajax-form">
+        <label for="m-name">Имя</label>
+        <input type="text" id="m-name" required>
+        <label for="m-phone">Телефон</label>
+        <input type="tel" id="m-phone" required>
+        <button type="submit" class="btn">Отправить</button>
+      </form>
+      <button class="modal__close" data-close-modal aria-label="Закрыть окно">✕</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
